@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #10b981;
+  --brand-accent: #047857;
+  --brand-primary-hover: #059669;
+  --brand-accent-hover: #065f46;
+  --brand-primary-text: #ffffff;
+  --brand-accent-text: #ffffff;
+  --brand-primary-10: rgba(16, 185, 129, 0.1);
+  --brand-primary-20: rgba(16, 185, 129, 0.2);
+  --brand-accent-15: rgba(4, 120, 87, 0.15);
+}
+
+@layer base {
+  html.light body {
+    background-color: #fbf4dc;
+    color: #051f14;
+  }
+
+  html.light body::selection {
+    background-color: #072418;
+    color: #fef08a;
+  }
+  html.dark body, body {
+    background-color: #05170f;
+    color: #fef3c7;
+  }
+
+  html.dark body::selection, body::selection {
+    background-color: #fbbf24;
+    color: #051a10;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+html.light ::-webkit-scrollbar-track {
+  background: rgba(245, 231, 190, 0.8);
+}
+
+html.dark ::-webkit-scrollbar-track, ::-webkit-scrollbar-track {
+  background: rgba(6, 26, 17, 0.8);
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(200, 167, 78, 0.8);
+  border-radius: 9999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb {
+  background: rgba(26, 86, 60, 0.8);
+  border-radius: 9999px;
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(180, 140, 50, 1);
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:hover {
+  background: rgba(40, 120, 85, 1);
+}
+
+/* Thermal Receipt Print Styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    padding: 10px;
+    background: white !important;
+    color: black !important;
+    font-family: 'JetBrains Mono', monospace !important;
+    box-shadow: none !important;
+  }
+}
